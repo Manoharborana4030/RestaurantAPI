@@ -11,9 +11,4 @@ class RestaurantSerializer(serializers.ModelSerializer):
 class CategorySerializer(serializers.ModelSerializer):
 	class Meta:
 		model = 'Category'
-		field = '__all__
-
-class IteamSSerializer(serializers.ModelSerializer):
-    class Meta:
-        model=Item
-        fields='__all__'
+		field = '__all__'
