@@ -22,3 +22,17 @@ class category(APIView):
 		serializer = CategorySerializer(obj,may=True)
 		return Response(serializer.data)
 
+class IteamData(GenericAPIView):
+    serializer_class=IteamSSerializer
+    permission_classes = (IsAuthenticated,)    
+    def get(self,request):
+        iteam=Item.objects.all()
+        serializer=IteamSSerializer(iteam,many=True)
+        return Response(serializer.data)
+       
+    def post(self,request):
+        serializer=IteamSSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response({'msg':'Data Inserted'})
+        return(serializer.errors)
