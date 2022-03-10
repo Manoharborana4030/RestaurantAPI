@@ -25,5 +25,6 @@ urlpatterns = [
     path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
     path('admin/', admin.site.urls),
     path('get_key', obtain_auth_token),
- 
+    path('res',views.restaurant.as_view()),
+    path('cat',views.category.as_view())
 ]
