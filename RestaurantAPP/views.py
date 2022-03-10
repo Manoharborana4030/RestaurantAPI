@@ -10,6 +10,10 @@ from drf_yasg import openapi
 from django.db.models import Sum
 
 
+
+def home(request):
+    return render(request,'app/home.html')
+
 class restaurant(APIView):
 	def get(self,request):
 		obj = Restaurant.objects.all()
