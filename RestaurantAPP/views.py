@@ -13,3 +13,29 @@ from django.db.models import Sum
 
 def home(request):
     return render(request,'app/home.html')
+
+class restaurant(APIView):
+	def get(self,request):
+		obj = Restaurant.objects.all()
+		serializer = RestaurantSerializer(obj,many=True)
+		return Response(serializer.data)
+
+class category(APIView):
+	def get(Self,request):
+		obj = Category.objects.all()
+		serializer = CategorySerializer(obj,may=True)
+		return Response(serializer.data)
+  
+class IteamData(APIView):
+    serializer_class=IteamSSerializer
+    def get(self,request):
+        iteam=Item.objects.all()
+        serializer=IteamSSerializer(iteam,many=True)
+        return Response(serializer.data)
+       
+    def post(self,request):
+        serializer=IteamSSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response({'msg':'Data Inserted'})
+        return(serializer.errors)
