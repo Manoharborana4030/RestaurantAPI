@@ -13,7 +13,3 @@ class CategorySerializer(serializers.ModelSerializer):
 		model = 'Category'
 		field = '__all__'
 
-class IteamSSerializer(serializers.ModelSerializer):
-    class Meta:
-        model=Item
-        fields='__all__'
