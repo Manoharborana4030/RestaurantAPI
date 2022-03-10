@@ -27,5 +27,4 @@ urlpatterns = [
     path('get_key', obtain_auth_token),
     path('res',views.restaurant.as_view()),
     path('cat',views.category.as_view())
- 
 ]

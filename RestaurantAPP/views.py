@@ -21,3 +21,4 @@ class category(APIView):
 		obj = Category.objects.all()
 		serializer = CategorySerializer(obj,may=True)
 		return Response(serializer.data)
+
